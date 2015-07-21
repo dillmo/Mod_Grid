@@ -26,6 +26,7 @@ for toolkit = 0, 7 do
     for k = 0, 19 do
       local xOffset = h * 0.1 - 0.95
       local yOffset = k * 0.1 - 0.95
+      local boolID = collisionGroups[toolkit].."_"..h.."_"..k
       local output = "<condition id=\"isInArea\">\n"..
                      "<string id=\"condition\" values=\"yesno\">yes</string>\n"..
                      "<string id=\"collision groups\" values=\"collison groups\" multiselect=\"true\">"..collisionGroups[toolkit]..";;</string>\n"..
@@ -42,13 +43,13 @@ for toolkit = 0, 7 do
                      "<string id=\"Comment\">"..h..", "..k.."</string>\n"..
                      "<normal>\n"..
                      "<action id=\"setBool\">"..
-                     "<string id=\"id\">"..h.."_"..k.."</string>\n"..
+                     "<string id=\"id\">"..boolID.."</string>\n"..
                      "<string id=\"value\" values=\"flagtoggle\">yes</string>\n"..
                      "</action>\n"..
                      "</normal>\n"..
                      "<else>\n"..
                      "<action id=\"setBool\">"..
-                     "<string id=\"id\">"..h.."_"..k.."</string>\n"..
+                     "<string id=\"id\">"..boolID.."</string>\n"..
                      "<string id=\"value\" values=\"flagtoggle\">no</string>\n"..
                      "</action>\n"..
                      "</else>\n"..
